@@ -7,7 +7,7 @@ using Microsoft.Identity.Web.UI;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Eqirl.Data;
-using Google.Cloud.Translation.V2;
+
 
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddDbContext<EqirlContext>(options =>
