@@ -1,0 +1,72 @@
+﻿
+@model Eqirl.Models.QuizQestion
+
+@{
+    ViewData["Title"] = "Language";
+}
+
+<h1>Change</h1>
+
+<h4>Change question in your regional language</h4>
+<hr />
+
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="lang">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="ID" />
+            <div class="form-group">
+               
+                <input type="hidden" name="fr" class="form-control" value=@Model.FKDeptID />
+                <span asp-validation-for="FKDeptID" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="FKDeptID" class="control-label">Choose Language</label>
+                <select asp-for="FKDeptID" class="form-control" asp-items="ViewBag.FKDeptID"></select>
+                <span asp-validation-for="FKDeptID" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+               
+                <input type ="hidden" asp-for="Question" class="form-control" />
+                <span asp-validation-for="Question" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                
+                <input type ="hidden" asp-for="Option1" class="form-control" />
+                <span asp-validation-for="Option1" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+               
+                <input type ="hidden" asp-for="Option2" class="form-control" />
+                <span asp-validation-for="Option2" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+               
+                <input type ="hidden" asp-for="Option3" class="form-control" />
+                <span asp-validation-for="Option3" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+              
+                <input type ="hidden" asp-for="Option4" class="form-control" />
+                <span asp-validation-for="Option4" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+               
+                <input type ="hidden" asp-for="CorrectAnswer" class="form-control" />
+                <span asp-validation-for="CorrectAnswer" class="text-danger"></span>
+            </div>
+       
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

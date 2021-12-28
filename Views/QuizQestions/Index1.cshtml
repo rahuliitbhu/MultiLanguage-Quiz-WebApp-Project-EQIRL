@@ -1,0 +1,618 @@
+﻿ @model IEnumerable<Eqirl.Models.QuizQestion>
+ 
+
+@{
+    ViewData["Title"] = "Index1";
+}
+
+
+<nav class="navbar navbar-expand-lg navbar-toggleable-lg navbar-light bg-white ">
+                    <div class="container-fluid">
+                     
+                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                      <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                          
+
+                         
+
+
+                        </div>
+                        <partial name="_LoginPartial" />
+                    </div>
+                </nav>
+            
+
+
+
+
+
+
+
+@{
+  
+    int marathi=0;
+    int hindi=0;int tamil=0;int gujrati=0;int eng =0;
+
+    
+   <div class="dropdown">
+     <div class="col-4">
+    <div class="list-group" id="list-tab" role="tablist">
+  <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+    Choose Language
+  </a>
+
+  
+    <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+       <li><a class="list-group-item list-group-item-action active" id="list-marathi-list" data-bs-toggle="list" href="#list-marathi" role="tab" aria-controls="list-marathi">Marathi</a></li>
+      <li><a class="list-group-item list-group-item-action" id="list-hindi-list" data-bs-toggle="list" href="#list-hindi" role="tab" aria-controls="list-hindi">Hindi</a></li>
+     <li> <a class="list-group-item list-group-item-action" id="list-tamil-list" data-bs-toggle="list" href="#list-tamil" role="tab" aria-controls="list-tamil">Tamil</a></li>
+     <li> <a class="list-group-item list-group-item-action" id="list-gujrati-list" data-bs-toggle="list" href="#list-gujrati" role="tab" aria-controls="list-gujrati">Gujrati</a></li>
+     <li>  <a class="list-group-item list-group-item-action" id="list-english-list" data-bs-toggle="list" href="#list-english" role="tab" aria-controls="list-english">English</a></li>
+     <li>  <a class="list-group-item list-group-item-action" id="list-empty-list" data-bs-toggle="list" href="#list-empty" role="tab" aria-controls="list-empty"> </a></li>
+       </ul>
+    </div>
+  </div>
+  <h1>Question Paper</h1>
+  <div class="col-8">
+    <div class="tab-content" id="nav-tabContent">
+
+
+      
+       
+
+      
+      <div class="tab-pane fade" id="list-marathi" role="tabpanel" aria-labelledby="list-marathi-list">
+      
+
+      <table class="table">
+    <thead>
+     
+        <tr>
+            <th>
+                प्रश्न
+            </th>
+            <th>
+                पर्याय 1
+            </th>
+            <th>
+                पर्याय 2
+            </th>
+            <th>
+                पर्याय 3
+            </th>
+            <th>पर्याय 4
+            </th>
+            <th>
+                उत्तर
+            </th>
+
+
+        </tr>
+    </thead>
+        <tbody>
+         
+@foreach (var item in Model) {
+
+    @if(item.FKDeptID==1)
+    {
+                <tr>
+                  
+
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Question)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Option1)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Option2)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Option3)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Option4)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Answer)
+                        </td>
+
+
+
+                          <td>
+                <a asp-action="AnsUpdate" asp-route-id="@item.ID">GiveAnswer</a>
+            </td>
+     @if (@item.Answer == 0) marathi = 0;
+     @if (@item.Answer != 0) marathi = 1;
+            
+        </tr>
+}
+}
+        </tbody>
+        
+          
+
+
+</table>
+ 
+  <div>@if(marathi==0)
+            {
+            <p>Warning Please select all answer to submit,Submit button will appear after successful answering of all question</p>
+        
+        }
+    </div>
+
+    <div>
+      
+        @if(marathi!=0)
+            {
+               <form asp-action="result">
+               <input type="hidden" class="form-group" name="val" value=1 >
+                <div class="form-group">
+                <button class="btn waves-effect waves-light" type="submit" name="Submit">Submit
+   
+  </button>
+        
+               
+                </div>
+                </form>
+                
+            }
+               
+            </div>     
+
+</div>
+
+ 
+ <div class="tab-pane fade  " id="list-hindi" role="tabpanel" aria-labelledby="list-hindi-list">
+ 
+       <table class="table">
+    <thead>
+     
+        <tr>
+            <th>
+                प्रश्न
+            </th>
+            <th>
+               विकल्प 1
+            </th>
+            <th>
+               विकल्प 2
+            </th>
+            <th>
+                विकल्प 3
+            </th>
+            <th>
+                विकल्प 4
+            </th>
+            <th>
+                उत्तर
+            </th>
+
+
+        </tr>
+    </thead>
+        <tbody>
+         
+@foreach (var item in Model) {
+
+    @if(item.FKDeptID==2)
+    {
+                <tr>
+                  
+
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Question)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Option1)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Option2)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Option3)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Option4)
+                        </td>
+                        <td>
+                           @Html.DisplayFor(modelItem => item.Answer)
+                        </td>
+
+
+
+                          <td>
+                <a asp-action="AnsUpdate" asp-route-id="@item.ID">GiveAnswer</a>
+            </td>
+     @if (@item.Answer == 0) hindi = 0;
+     @if (@item.Answer != 0) hindi = 1;
+            
+        </tr>
+}
+}
+        </tbody>
+        
+          
+
+
+</table>
+ 
+  <div>@if(hindi==0)
+            {
+            <p>Warning Please select all answer to submit,Submit button will appear after successful answering of all question</p>
+        
+        }
+    </div>
+
+    <div>
+      
+        @if(hindi!=0)
+            {
+               <form asp-action="result" >
+               <input type="hidden" class="form-group" name="val" value=2 >
+                <div class="form-group">
+                <button class="btn waves-effect waves-light" type="submit" name="Submit">Submit
+   
+  </button>
+        
+               
+                </div>
+                </form>
+                
+            }
+               
+            </div>     
+
+</div>
+
+   <div class="tab-pane fade " id="list-tamil" role="tabpanel" aria-labelledby="list-tamil-list">
+      
+            <table class="table">
+    <thead>
+     
+        <tr>
+            <th>
+              கேள்வி
+            </th>
+            <th>
+                விருப்பம் 1
+            </th>
+            <th>
+                விருப்பம் 2
+            </th>
+            <th>
+                விருப்பம் 3
+            </th>
+            <th>
+                விருப்பம் 4
+            </th>
+            <th>
+                பதில்
+            </th>
+
+
+        </tr>
+    </thead>
+        <tbody>
+         
+@foreach (var item in Model) {
+
+    @if(item.FKDeptID==3)
+    {
+                <tr>
+                  
+
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Question)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Option1)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Option2)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Option3)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Option4)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Answer)
+                        </td>
+
+
+
+                          <td>
+                <a asp-action="AnsUpdate" asp-route-id="@item.ID">GiveAnswer</a>
+            </td>
+     @if (@item.Answer == 0) tamil = 0;
+     @if (@item.Answer != 0) tamil = 1;
+            
+        </tr>
+}
+}
+        </tbody>
+        
+          
+
+
+</table>
+ 
+  <div>@if(tamil==0)
+            {
+            <p>Warning Please select all answer to submit,Submit button will appear after successful answering of all question</p>
+        
+        }
+    </div>
+
+    <div>
+      
+        @if(tamil!=0)
+            {
+               <form asp-action="result">
+               <input type="hidden" class="form-group" name="val" value=3 >
+                <div class="form-group">
+                <button class="btn waves-effect waves-light" type="submit" name="Submit">Submit
+   
+  </button>
+        
+               
+                </div>
+                </form>
+                
+            }
+               
+            </div>     
+
+</div>
+
+      
+
+
+
+      <div class="tab-pane fade " id="list-gujrati" role="tabpanel" aria-labelledby="list-gujrati-list">
+      
+      
+      
+            <table class="table">
+    <thead>
+     
+        <tr>
+            <th>
+                            
+                            પ્રશ્ન
+                        </th>
+                        <th>
+                            વિકલ્પ 1
+                        </th>
+                        <th>
+                            વિકલ્પ 2
+                        </th>
+                        <th>
+                            વિકલ્પ 3
+                        </th>
+                        <th>
+                            વિકલ્પ 4
+                        </th>
+                        <th>
+                             જવાબ
+                        </th>
+
+
+
+        </tr>
+    </thead>
+        <tbody>
+         
+@foreach (var item in Model) {
+
+    @if(item.FKDeptID==4)
+    {
+                <tr>
+                  
+
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Question)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Option1)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Option2)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Option3)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Option4)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Answer)
+                        </td>
+
+
+
+                          <td>
+                <a asp-action="AnsUpdate" asp-route-id="@item.ID">GiveAnswer</a>
+            </td>
+     @if (@item.Answer == 0) gujrati = 0;
+     @if (@item.Answer != 0) gujrati = 1;
+            
+        </tr>
+}
+}
+        </tbody>
+        
+          
+
+
+</table>
+ 
+  <div>@if(gujrati==0)
+            {
+            <p>Warning Please select all answer to submit,Submit button will appear after successful answering of all question</p>
+        
+        }
+    </div>
+
+    <div>
+      
+        @if(gujrati!=0)
+            {
+               <form asp-action="result">
+               <input type="hidden" class="form-group" name="val" value=4 >
+                <div class="form-group">
+                <button class="btn waves-effect waves-light" type="submit" name="Submit">Submit
+   
+  </button>
+        
+               
+                </div>
+                </form>
+                
+            }
+               
+            </div>     
+
+</div>
+
+      
+
+      <div class="tab-pane fade " id="list-english" role="tabpanel" aria-labelledby="list-english-list">
+      
+      
+      
+            <table class="table">
+    <thead>
+     
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Question)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Option1)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Option2)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Option3)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Option4)
+            </th>
+            <th>
+               @Html.DisplayNameFor(model => model.Answer)
+            </th>
+
+
+        </tr>
+    </thead>
+        <tbody>
+         
+@foreach (var item in Model) {
+
+    @if(item.FKDeptID==5)
+    {
+                <tr>
+                  
+
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Question)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Option1)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Option2)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Option3)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Option4)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.CorrectAnswer)
+                        </td>
+
+
+
+
+                          <td>
+                <a asp-action="AnsUpdate" asp-route-id="@item.ID">GiveAnswer</a>
+            </td>
+     @if (@item.Answer == 0) eng = 0;
+     @if (@item.Answer != 0) eng = 1;
+            
+        </tr>
+}
+}
+        </tbody>
+        
+          
+
+
+</table>
+ 
+  <div>@if(eng==0)
+            {
+            <p>Warning Please select all answer to submit,Submit button will appear after successful answering of all question</p>
+        
+        }
+    </div>
+
+    <div>
+      
+        @if(eng!=0)
+            {
+               <form asp-action="result">
+               <input type="hidden" class="form-group" name="val" value=5 >
+                <div class="form-group">
+                <button class="btn waves-effect waves-light" type="submit" name="Submit">Submit
+   
+  </button>
+        
+               
+                </div>
+                </form>
+                
+            }
+               
+            </div>     
+
+</div>
+
+<div class="tab-pane fade show active " id="list-empty" role="tabpanel" aria-labelledby="list-empty-list">
+<h3>Select Your Language</h3>
+      </div>
+
+
+</div>
+</div>
+</div>
+
+
+
+
+
+
+
+
+
+}
+
+
+
+
+
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

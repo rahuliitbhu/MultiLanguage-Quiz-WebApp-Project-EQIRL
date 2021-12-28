@@ -1,0 +1,259 @@
+﻿@model IEnumerable<Eqirl.Models.QuizQestion>
+@using Eqirl.Models
+@{
+    ViewData["Title"] = "Result";
+
+
+
+}
+
+
+
+
+
+@{
+    var data = (QuizQestion)ViewData["Message"];
+    int counter=0,count=1;
+    Boolean check = true;
+    <nav class="navbar navbar-expand-lg navbar-toggleable-lg navbar-light bg-white ">
+                    <div class="container-fluid">
+                     
+                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                        
+                        <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                          
+
+                         
+
+
+                        </div>
+                        <partial name="_LoginPartial" />
+                    </div>
+                </nav>
+                 <div><a href="https://app.powerbi.com/reportEmbed?reportId=32274bf8-0b0d-4d5f-87c8-b46144817928&autoAuth=true&ctid=4d0555fb-be31-4128-94f9-734927b1613d&config=eyJjbHVzdGVyVXJsIjoiaHR0cHM6Ly93YWJpLXNvdXRoLWVhc3QtYXNpYS1yZWRpcmVjdC5hbmFseXNpcy53aW5kb3dzLm5ldC8ifQ%3D%3D"> See Your Performance </a></div>
+   <h2>Result</h2>
+
+ @foreach (var item in Model)
+    {
+        @if (@data.FKDeptID == 1 && item.FKDeptID==1)
+        {
+            @if (@item.CorrectAnswer == @item.Answer)
+            {
+                counter = counter + 1;
+                <div class="card-panel green -5 z-depth-1">
+                    <div class="row valign-wrapper">
+
+                        <div class="col s10 flex-row ">
+
+                            <div><p >Q No. @count</p></div>
+                            <div>   <p>Correct Answer </p></div>
+
+
+
+                        </div>
+                    </div>
+                </div>
+                count = count + 1;
+
+            }
+
+            else
+            {
+                <div class="card-panel red lighten-5 z-depth-1">
+                    <div class="row valign-wrapper">
+
+                        <div class="col s10 flex-grow-1">
+
+                            <div><p>Q No. @count</p></div>
+                            <div>   <p>Wrong Answer </p></div>
+
+                        </div>
+                    </div>
+                </div>
+                count = count + 1;
+
+            }
+
+        }
+        else if (@data.FKDeptID == 2 && item.FKDeptID==2)
+        {
+             @if (@item.CorrectAnswer == @item.Answer)
+            {
+                counter = counter + 1;
+                <div class="card-panel green -5 z-depth-1">
+                    <div class="row valign-wrapper">
+
+                        <div class="col s10 flex-row ">
+
+                            <div><p >Q No. @count</p></div>
+                            <div>   <p>Correct Answer </p></div>
+
+
+
+                        </div>
+                    </div>
+                </div>
+                count = count + 1;
+
+            }
+
+            else
+            {
+                <div class="card-panel red lighten-5 z-depth-1">
+                    <div class="row valign-wrapper">
+
+                        <div class="col s10 flex-grow-1">
+
+                            <div><p>Q No. @count</p></div>
+                            <div>   <p>Wrong Answer </p></div>
+
+                        </div>
+                    </div>
+                </div>
+                count = count + 1;
+
+            }
+        }
+         else if (@data.FKDeptID == 3 && item.FKDeptID==3)
+        {
+             @if (@item.CorrectAnswer == @item.Answer)
+            {
+                counter = counter + 1;
+                <div class="card-panel green -5 z-depth-1">
+                    <div class="row valign-wrapper">
+
+                        <div class="col s10 flex-row ">
+
+                            <div><p >Q No. @count</p></div>
+                            <div>   <p>Correct Answer </p></div>
+
+
+
+                        </div>
+                    </div>
+                </div>
+                count = count + 1;
+
+            }
+
+            else
+            {
+                <div class="card-panel red lighten-5 z-depth-1">
+                    <div class="row valign-wrapper">
+
+                        <div class="col s10 flex-grow-1">
+
+                            <div><p>Q No. @count</p></div>
+                            <div>   <p>Wrong Answer </p></div>
+
+                        </div>
+                    </div>
+                </div>
+                count = count + 1;
+
+            }
+        }
+
+         else if (@data.FKDeptID == 4 && item.FKDeptID==4)
+        {
+             @if (@item.CorrectAnswer == @item.Answer)
+            {
+                counter = counter + 1;
+                <div class="card-panel green -5 z-depth-1">
+                    <div class="row valign-wrapper">
+
+                        <div class="col s10 flex-row ">
+
+                            <div><p >Q No. @count</p></div>
+                            <div>   <p>Correct Answer </p></div>
+
+
+
+                        </div>
+                    </div>
+                </div>
+                count = count + 1;
+
+            }
+
+            else
+            {
+                <div class="card-panel red lighten-5 z-depth-1">
+                    <div class="row valign-wrapper">
+
+                        <div class="col s10 flex-grow-1">
+
+                            <div><p>Q No. @count</p></div>
+                            <div>   <p>Wrong Answer </p></div>
+
+                        </div>
+                    </div>
+                </div>
+                count = count + 1;
+
+            }
+        }
+        
+         else if (@data.FKDeptID == 5 && item.FKDeptID==5)
+        {
+             @if (@item.CorrectAnswer == @item.Answer)
+            {
+                counter = counter + 1;
+                <div class="card-panel green -5 z-depth-1">
+                    <div class="row valign-wrapper">
+
+                        <div class="col s10 flex-row ">
+
+                            <div><p >Q No. @count</p></div>
+                            <div>   <p>Correct Answer </p></div>
+
+
+
+                        </div>
+                    </div>
+                </div>
+                count = count + 1;
+
+            }
+
+            else
+            {
+                <div class="card-panel red lighten-5 z-depth-1">
+                    <div class="row valign-wrapper">
+
+                        <div class="col s10 flex-grow-1">
+
+                            <div><p>Q No. @count</p></div>
+                            <div>   <p>Wrong Answer </p></div>
+
+                        </div>
+                    </div>
+                </div>
+                count = count + 1;
+
+            }
+        }
+
+
+
+
+
+    }
+    
+                
+                counter=counter*4;
+                <div class="card-panel blue lighten-5 z-depth-1">
+                    <div class="row valign-wrapper">
+
+                        <div class="col s10">
+
+                            <div><h1>Total Marks : @counter</h1></div>
+                        </div>
+                    </div>
+                </div>
+            
+            }
+         
