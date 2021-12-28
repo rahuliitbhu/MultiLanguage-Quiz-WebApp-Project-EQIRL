@@ -10,6 +10,8 @@ using Eqirl.Data;
 
 
 var builder = WebApplication.CreateBuilder(args);
+var keyVaultEndpoint = new Uri(Environment.GetEnvironmentVariable("VaultUri"));
+builder.Configuration.AddAzureKeyVault(keyVaultEndpoint, new DefaultAzureCredential());
 builder.Services.AddDbContext<EqirlContext>(options =>
 
     options.UseSqlServer(builder.Configuration.GetConnectionString("EqirlContext")));
@@ -43,13 +45,14 @@ builder.Services.AddRazorPages().AddMicrosoftIdentityUI();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
+/*
 if (!app.Environment.IsDevelopment())
 {
     app.UseExceptionHandler("/Home/Error");
     // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
     app.UseHsts();
 }
-
+*/
 app.UseHttpsRedirection();
 app.UseStaticFiles();
 
